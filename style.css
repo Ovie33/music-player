@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css?family=lato&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0%;
+}
+
+body {
+  height: 100vh;
+  font-family: "lato", sans-serif;
+  background: linear-gradient(
+    0deg,
+    rgb(54, 17, 102) 23.8%,
+    rgb(13, 38, 175) 92%
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.music-container {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 20px 0 rgba(252, 169, 169, 0.6);
+  display: flex;
+  padding: 20px 30px;
+  position: relative;
+  margin: 100px 0;
+  z-index: 10;
+}
+.image-container {
+  width: 90px;
+  position: relative;
+}
+
+.image-container img {
+  width: inherit;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  animation: rotate 3s linear infinite;
+  animation-play-state: paused;
+}
+
+.music-container.play .image-container img {
+  animation-play-state: running;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.action-btn {
+  background: #fff;
+  border: none;
+  color: #dfdbdf;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 10px;
+  margin: 0 20px;
+}
+.action-btn-big {
+  color: #cdc2d0;
+  font-size: 20px;
+  border: none;
+  background: #fff;
+  cursor: pointer;
+}
+.action-btn:hover {
+  color: black;
+}
+.action-btn:focus {
+  outline: none;
+}
+.music-info {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 15px 15px 0 0;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  opacity: 0;
+  width: calc(100% - 40px);
+  transform: translateY(0%);
+  padding: 10px 10px 10px 150px;
+  transition: transfrom 0.3s ease-in, opacity 0, 3s ease-in;
+}
+
+.music-container.play .music-info {
+  opacity: 1;
+  transform: translateY(-100%);
+}
+
+.progress-container {
+  background: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px 0;
+  height: 4px;
+  width: 100%;
+}
+
+.progress {
+  background: #343066;
+  border-radius: 5px;
+  height: 100%;
+  width: 0%;
+  transition: 0.1s linear;
+}
